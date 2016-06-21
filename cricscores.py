@@ -55,9 +55,9 @@ def get_matches(html_doc):
 
 def print_matches(matches):
     print()
-    print ('%-40s %-10s %-40s %5s' % ("-----------------------------------", "SCORES", "-----------------------------------", "\n\n"))
+    print ('%-45s %-10s %-45s %0s' % ("-----------------------------------------", "SCORES", "-----------------------------------------", "\n\n"))
     for x in matches:
-        print ('%-30s %-20s %-30s %-20s %5s' % (str(x[2]), str(x[3]), str(x[4]), str(x[5]), "\n\n"))
+        print ('%-30s %-20s %-30s %-20s %0s' % (str(x[2]), str(x[3]), str(x[4]), str(x[5]), "\n\n"))
 
 #t1 = time.time();
 set_url()
