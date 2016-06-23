@@ -62,6 +62,7 @@ def print_matches(matches):
     #print (matches_array)
     table = AsciiTable(matches_arr)
     table.inner_heading_row_border = False
+    table.inner_row_border = True
     print (table.table)
 
 set_url()
