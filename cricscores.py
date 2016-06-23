@@ -2,7 +2,7 @@
 
 import urllib.request
 from bs4 import BeautifulSoup
-import time
+from terminaltables import AsciiTable
 
 global URL
 
@@ -54,15 +54,17 @@ def get_matches(html_doc):
     return matches
 
 def print_matches(matches):
-    print()
-    print ('%-45s %-10s %-45s %0s' % ("-----------------------------------------", "SCORES", "-----------------------------------------", "\n\n"))
-    for x in matches:
-        print ('%-30s %-20s %-30s %-20s %0s' % (str(x[2]), str(x[3]), str(x[4]), str(x[5]), "\n\n"))
+    matches_arr = []
+    for match in matches:
+        #match_arr = [str(match[2]), str(match[3]), str(match[4]), str(match[5]), str(match[1])]
+        match_arr = [str(match[2]), str(match[3]), str(match[4]), str(match[5])]
+        matches_arr.append(match_arr)
+    #print (matches_array)
+    table = AsciiTable(matches_arr)
+    table.inner_heading_row_border = False
+    print (table.table)
 
-#t1 = time.time();
 set_url()
 html_doc = get_html()
 matches = get_matches(html_doc)
 print_matches(matches)
-#t2 = time.time();
-#print ('Retreived in %.f milliseconds' % (1000*(t2-t1)))
